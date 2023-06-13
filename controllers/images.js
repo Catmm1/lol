@@ -1,3 +1,4 @@
+const { ResponseData } = require('../response/ResponseData.js');
 const User = require('../models/User');//
 const images=require('../models/images')
 const {GenerateName} =require('../utils/getImageDate')
@@ -42,11 +43,9 @@ module.exports.upLoadImage = async (req, res) => {
         const image=req.body.user.name
         const updatedUser = await user.update({image})
         
-        return res.status(200).json("");
+        return res.status(200).json(ResponseData(200,"上传成功"));
     } catch (e) {
-        return res.status(404).json({
-            errors: { body: [e.message] }
-        });
+        return res.status(404).json(ResponseData(404,e.message));
     }
 
 }
