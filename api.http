@@ -233,8 +233,8 @@ Authorization: Token {{token}}
 {
   "user":{
     "email": "jake5@jake.jake",
-    "path":"E:/Study/kpt/1.jpg",
-    "name":"111.jpg"
+    "path":"D:/mm/图片/1536470465194.jpg",
+    "name":"3.jpg"
   }
 }
 
