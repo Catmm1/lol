@@ -1,0 +1,240 @@
+@hostname = localhost
+@port = 3000
+@host = {{hostname}}:{{port}}
+@contentType = application/json
+@createdAt = {{$datetime iso8601}}
+
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc3Q1IiwiZW1haWwiOiJqYWtlNUBqYWtlLmpha2UiLCJpYXQiOjE2ODYzMDkwMzF9.rZzgjVnInkQ9wl36OBBmvfgM04UKS9sxP3b9DBLpn8s
+
+### 注册
+POST /api/users
+host: {{host}}
+content-type: {{contentType}}
+
+{
+  "user":{
+    "email": "jake5@jake.jake",
+    "password": "jakejake",
+    "username": "test5"
+  }
+}
+
+
+### 登录
+POST /api/users/login
+host: {{host}}
+content-type: {{contentType}}
+
+{
+  "user":{
+    "email": "jake5@jake.jake",
+    "password": "jakejake"
+  }
+}
+
+
+### 查看当前用户
+GET /api/user
+host: {{host}}
+content-type: {{contentType}}
+Authorization: Token {{token}}
+
+{
+  "user":{
+    "email": "jake1@jake.jake"
+  }
+}
+
+###
+PATCH  /api/user
+host: {{host}}
+content-type: {{contentType}}
+Authorization: Token {{token}}
+
+{
+  "user":{
+    "bio": "bio info5",
+    "image":"/1.jpg",
+    "info": "asdfasdf"
+  }
+}
+
+###
+GET /api/profiles/test1
+host: {{host}}
+content-type: {{contentType}}
+Authorization: Token {{token}}
+
+###
+POST /api/profiles/test/follow
+host: {{host}}
+content-type: {{contentType}}
+Authorization: Token {{token}}
+
+###
+POST /api/articles
+host: {{host}}
+content-type: {{contentType}}
+Authorization: Token {{token}}
+
+{
+  "article": {
+    "title": "How to tt train your dragon af c",
+    "description": "Ever wonder how?",
+    "body": "You have to believe",
+    "tagList": ["reactjs", "angularjs", "cs", "js" ,"c","dragons"]
+  }
+}
+
+###
+GET /api/articles?author=test
+host: {{host}}
+content-type: {{contentType}}
+
+
+
+###
+POST /api/articles/how-to-train-your-dragon-af-c/favorite
+host: {{host}}
+content-type: {{contentType}}
+Authorization: Token {{token}}
+
+###
+GET /api/articles/how-to-train-your-dragon-af-c/comments
+host: {{host}}
+content-type: {{contentType}}
+Authorization: Token {{token}}
+
+###
+POST  /api/articles/how-to-train-your-dragon-af-c/comments
+host: {{host}}
+content-type: {{contentType}}
+Authorization: Token {{token}}
+
+{   
+    "comment":{
+    "body":"comments to articles"
+}
+}
+
+###
+GET /api/tags
+host: {{host}}
+content-type: {{contentType}}
+
+###
+POST /api/weapons/create
+host: {{host}}
+content-type: {{contentType}}
+Authorization: Token {{token}}
+
+{
+  "weapon":{
+    "id":"000001",
+    "quality": 5,
+    "name": "A Thousand Floating Dreams",
+    "att": 520,
+    "Addproperties":"jingtong",
+    "AddPropertiesValue":240,
+    "Introduction":"This lamp illuminates the dreams that float up over a thousand nights, and in its emerald-green light flows a song of ancient days."
+  }
+}
+
+
+###
+GET /api/weapons/search
+host: {{host}}
+content-type: {{contentType}}
+Authorization: Token {{token}}
+
+{
+  "weapon":{
+    "id":"000001"
+    }
+}
+
+###
+PATCH  /api/weapons/update
+host: {{host}}
+content-type: {{contentType}}
+Authorization: Token {{token}}
+
+{
+  "weapon":{
+    "id":"000001",
+    "att":"1024"
+    }
+}
+
+###  创建角色
+POST /api/players/create
+host: {{host}}
+content-type: {{contentType}}
+Authorization: Token {{token}}
+
+{
+  "player":{
+    "playerid":"000001",
+    "name":"nadida",
+    "location":"xumi"
+    }
+}
+
+
+###  搜索角色
+GET /api/players/search
+host: {{host}}
+content-type: {{contentType}}
+Authorization: Token {{token}}
+
+{
+  "player":{
+    "playerid":"000001"
+    }
+}
+
+
+###  更新角色
+PATCH  /api/players/update
+host: {{host}}
+content-type: {{contentType}}
+Authorization: Token {{token}}
+
+{
+  "player":{
+    "playerid":"000001",
+    "name":"nadida",
+    "location":"xumi",
+    "maxHp":200,
+    "Weaponsid":"000001",
+    "nowHp":100,
+    "nowMp":100
+    }
+}
+
+###  
+GET  /api/user/image
+host: {{host}}
+content-type: {{contentType}}
+Authorization: Token {{token}}
+
+{
+  "user":{
+    "email": "jake5@jake.jake"
+  }
+}
+
+###
+POST /api/user/imageupload
+host: {{host}}
+content-type: {{contentType}}
+Authorization: Token {{token}}
+
+{
+  "user":{
+    "email": "jake5@jake.jake",
+    "path":"E:/Study/kpt/1.jpg",
+    "name":"111.jpg"
+  }
+}
+
